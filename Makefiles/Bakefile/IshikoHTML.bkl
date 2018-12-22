@@ -19,6 +19,13 @@ library IshikoHTML
 
     headers
     {
+        ../../Include/Ishiko/HTML/HTMLParser.h
+
         ../../Include/Ishiko/HTML/linkoptions.h
+    }
+
+    sources
+    {
+        ../../Source/HTMLParser.cpp
     }
 }
