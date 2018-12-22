@@ -11,8 +11,15 @@ program IshikoHTMLTests : IshikoTestFrameworkCore
 {
     archs = x86 x86_64;
 
+    headers
+    {
+        ../../Source/HTMLParserTests/HTMLParserTests.h
+    }
+
     sources
     {
         ../../Source/main.cpp
+
+        ../../Source/HTMLParserTests/HTMLParserTests.cpp
     }
 }
