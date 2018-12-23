@@ -20,14 +20,15 @@
     IN THE SOFTWARE.
 */
 
-#include "HTMLParserTests/HTMLParserTests.h"
+#ifndef _HTML_TESTS_HTMLPARSERTESTS_HTMLPARSERTESTS_H_
+#define _HTML_TESTS_HTMLPARSERTESTS_HTMLPARSERTESTS_H_
+
 #include "Ishiko/TestFramework/TestFrameworkCore.h"
 
-int main(int argc, char* argv[])
+class HTMLParserTests
 {
-    Ishiko::TestFramework::TestHarness theTestHarness("IshikoHTML");
+public:
+    static void AddTests(Ishiko::TestFramework::TestHarness& theTestHarness);
+};
 
-    HTMLParserTests::AddTests(theTestHarness);
-
-    return theTestHarness.run();
-}
+#endif
