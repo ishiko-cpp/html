@@ -1,0 +1,40 @@
+toolsets = gnu vs2022 vs2019 vs2017 vs2015;
+
+gnu.makefile = ../gnumake/GNUmakefile;
+vs2022.solutionfile = ../vc17/IshikoHTML.sln;
+vs2019.solutionfile = ../vc16/IshikoHTML.sln;
+vs2017.solutionfile = ../vc15/IshikoHTML.sln;
+vs2015.solutionfile = ../vc14/IshikoHTML.sln;
+
+library IshikoHTML
+{
+    includedirs += ../../include/Ishiko/HTML;
+
+    if ($(toolset) == gnu)
+    {
+        cxx-compiler-options = "-std=c++11";
+        outputdir = ../../lib;
+    }
+
+    if ($(toolset) != gnu)
+    {
+        archs = x86 x86_64;
+        outputdir = ../../lib/$(arch);
+    }
+
+    if ($(config) == Debug)
+    {
+        basename = IshikoHTML-d;
+    }
+
+    headers
+    {
+        ../../include/Ishiko/HTML/HTMLParser.h
+        ../../include/Ishiko/HTML/linkoptions.h
+    }
+
+    sources
+    {
+        ../../src/HTMLParser.cpp
+    }
+}
