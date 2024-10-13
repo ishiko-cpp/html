@@ -10,6 +10,9 @@ class HTMLParserTests : public Ishiko::TestSequence
 {
 public:
     HTMLParserTests(const Ishiko::TestNumber& number, const Ishiko::TestContext& context);
+
+private:
+    static void ConstructorTest1(Ishiko::Test& test);
 };
 
 #endif
