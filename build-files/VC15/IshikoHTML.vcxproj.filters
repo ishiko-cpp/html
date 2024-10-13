@@ -17,15 +17,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Include\Ishiko\HTML\HTMLParser.h">
+    <ClInclude Include="..\..\include\Ishiko\HTML\HTMLParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Include\Ishiko\HTML\linkoptions.h">
+    <ClInclude Include="..\..\include\Ishiko\HTML\linkoptions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\HTMLParser.cpp">
+    <ClCompile Include="..\..\src\HTMLParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

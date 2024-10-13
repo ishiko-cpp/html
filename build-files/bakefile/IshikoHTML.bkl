@@ -1,16 +1,26 @@
-toolsets = vs2017 vs2015 vs2013;
+toolsets = gnu vs2022 vs2019 vs2017 vs2015;
 
-vs2017.solutionfile = ../VC15/IshikoHTML.sln;
-vs2015.solutionfile = ../VC14/IshikoHTML.sln;
-vs2013.solutionfile = ../VC12/IshikoHTML.sln;
+gnu.makefile = ../gnumake/GNUmakefile;
+vs2022.solutionfile = ../vc17/IshikoHTML.sln;
+vs2019.solutionfile = ../vc16/IshikoHTML.sln;
+vs2017.solutionfile = ../vc15/IshikoHTML.sln;
+vs2015.solutionfile = ../vc14/IshikoHTML.sln;
 
 library IshikoHTML
 {
-    archs = x86 x86_64;
+    includedirs += ../../include/Ishiko/HTML;
 
-    includedirs += ../../Include/Ishiko/HTML;
+    if ($(toolset) == gnu)
+    {
+        cxx-compiler-options = "-std=c++11";
+        outputdir = ../../lib;
+    }
 
-    outputdir = ../../Lib/$(arch);
+    if ($(toolset) != gnu)
+    {
+        archs = x86 x86_64;
+        outputdir = ../../lib/$(arch);
+    }
 
     if ($(config) == Debug)
     {
@@ -19,13 +29,12 @@ library IshikoHTML
 
     headers
     {
-        ../../Include/Ishiko/HTML/HTMLParser.h
-
-        ../../Include/Ishiko/HTML/linkoptions.h
+        ../../include/Ishiko/HTML/HTMLParser.h
+        ../../include/Ishiko/HTML/linkoptions.h
     }
 
     sources
     {
-        ../../Source/HTMLParser.cpp
+        ../../src/HTMLParser.cpp
     }
 }
