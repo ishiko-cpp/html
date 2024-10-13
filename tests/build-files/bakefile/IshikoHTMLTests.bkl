@@ -1,25 +1,33 @@
-ishikopath = envvar("ISHIKO");
-import $(ishikopath)/TestFramework/Include/Ishiko/TestFramework/TestFrameworkCore.bkl;
+ishikopath = envvar("ISHIKO_CPP_ROOT");
+import $(ishikopath)/test-framework/include/Ishiko/TestFramework/Core.bkl;
 
-toolsets = vs2017 vs2015 vs2013;
+toolsets = gnu vs2022 vs2019 vs2017 vs2015;
 
-vs2017.solutionfile = ../VC15/IshikoHTMLTests.sln;
-vs2015.solutionfile = ../VC14/IshikoHTMLTests.sln;
-vs2013.solutionfile = ../VC12/IshikoHTMLTests.sln;
+gnu.makefile = ../gnumake/GNUmakefile;
+vs2022.solutionfile = ../vc17/IshikoHTMLTests.sln;
+vs2019.solutionfile = ../vc16/IshikoHTMLTests.sln;
+vs2017.solutionfile = ../vc15/IshikoHTMLTests.sln;
+vs2015.solutionfile = ../vc14/IshikoHTMLTests.sln;
 
 program IshikoHTMLTests : IshikoTestFrameworkCore
 {
     archs = x86 x86_64;
 
+    if ($(toolset) == gnu)
+    {
+        cxx-compiler-options = "-std=c++11";
+        libs += IshikoTestFrameworkCore;
+    }
+
+
     headers
     {
-        ../../Source/HTMLParserTests/HTMLParserTests.h
+        ../../src/HTMLParserTests/HTMLParserTests.h
     }
 
     sources
     {
-        ../../Source/main.cpp
-
-        ../../Source/HTMLParserTests/HTMLParserTests.cpp
+        ../../src/main.cpp
+        ../../src/HTMLParserTests/HTMLParserTests.cpp
     }
 }

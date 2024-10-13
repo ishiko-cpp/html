@@ -17,15 +17,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\HTMLParserTests\HTMLParserTests.h">
+    <ClInclude Include="..\..\src\HTMLParserTests\HTMLParserTests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\main.cpp">
+    <ClCompile Include="..\..\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\HTMLParserTests\HTMLParserTests.cpp">
+    <ClCompile Include="..\..\src\HTMLParserTests\HTMLParserTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
