@@ -1,0 +1,20 @@
+setting ISHIKO_HTML_ROOT
+{
+    help = "Path to the Ishiko HTML installation";
+    default = '$(ISHIKO_CPP_ROOT)/html';
+}
+
+template IshikoHTML
+{
+    includedirs += $(ISHIKO_HTML_ROOT)/include;
+
+    if ($(toolset) == gnu)
+    {
+        libdirs += $(ISHIKO_HTML_ROOT)/lib;
+    }
+
+    if ($(toolset) != gnu)
+    {
+        libdirs += $(ISHIKO_HTML_ROOT)/lib/$(arch);
+    }
+}
