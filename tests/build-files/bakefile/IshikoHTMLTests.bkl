@@ -1,4 +1,5 @@
 ishikopath = envvar("ISHIKO_CPP_ROOT");
+import $(ishikopath)/html/include/Ishiko/HTML.bkl;
 import $(ishikopath)/test-framework/include/Ishiko/TestFramework/Core.bkl;
 
 toolsets = gnu vs2022 vs2019 vs2017 vs2015;
@@ -9,7 +10,7 @@ vs2019.solutionfile = ../vc16/IshikoHTMLTests.sln;
 vs2017.solutionfile = ../vc15/IshikoHTMLTests.sln;
 vs2015.solutionfile = ../vc14/IshikoHTMLTests.sln;
 
-program IshikoHTMLTests : IshikoTestFrameworkCore
+program IshikoHTMLTests : IshikoHTML, IshikoTestFrameworkCore
 {
     archs = x86 x86_64;
 
